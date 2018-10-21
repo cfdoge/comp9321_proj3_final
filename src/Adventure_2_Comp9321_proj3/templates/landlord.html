@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/landlord.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.bundle.js"></script>
+		<title>Comp9321 assignment3</title>
+	</head>
+
+
+	<body>
+
+		<div class="modal fade" id="house_price_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="exampleModalLongTitle">Predicting Price</h5>
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	              <span aria-hidden="true">&times;</span>
+	            </button>
+	          </div>
+	          <div class="modal-body" id ="information">
+	          </div>
+	          <div class="modal-footer">
+	            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
+
+
+		<div class="container-fluid bg-light" >
+		  <center><h1>Price Prediction for Landlords</h1></center></br>
+
+		  <div class="row">
+		   	<div class="col-sm-4"></div>
+		    <div class="col-sm-4">
+		    	<form>
+					<div class = "form-group">
+						<label for="time_input"> <h5>Which day are you trying to post?</h5></label></br>
+						<input class="form-control" type="date" id="time_input" value="">
+					</div></br>
+					<div class="form-group">
+
+						<label for="exampleFormControlInput1"><h5>Which suburb are you in?</h5></label>
+						<input class="form-control" name="locality" autocomplete="home locality" id="suburb_input">
+					</div></br>
+
+					<div class="form-group">
+						<label for="exampleFormControlInput1"><h5>How about the street and unit?</h5></label>
+						<input class="form-control" name="street-address" autocomplete="home street-address" id="unit_street_input">
+					    <!-- </div> -->
+					</div></br>
+
+					<div class="form-group">
+						<label for="exampleFormControlSelect1"><h5>How about the room properties?</h5></label>
+
+						<div class="row">
+							<div class="col-sm-4">
+								<div><h7>Bathrooms</h7></div>
+								<select class="form-control" id="bathroom_num_input">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+							</div>
+							<div class="col-sm-4" >
+								<div><h7>Bedrooms</h7></div>
+								<select class="form-control" id="bedroom_num_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+								</select>
+							</div>
+							<div class="col-sm-4" >
+								<div><h7>Bed No.</h7></div>
+								<select class="form-control" id="bed_num_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+									<option>17</option>
+								</select>
+							</div>
+						</div>
+					</div></br>
+
+
+
+					<div class="form-group">
+
+						<label for="exampleFormControlSelect1"><h5>What is the capacity of your room?</h5></label>
+
+						<select class="form-control" id="capacity_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+						</select>
+
+					</div></br>
+
+
+					<div class="form-group">
+						<label for="exampleFormControlSelect1"><h5>How many days are posting?</h5></label>
+							<textarea class="form-control"  rows="1" placeholder="e.g. 2-3" id="period_input"></textarea>
+					</div></br>
+
+					<div class="form-group">
+						<label for="exampleFormControlSelect1"><h5>What is your expected additional fee?</h5></label>
+							<h7>Cleanning fee (in AU dollar):</h7>
+							<textarea class="form-control" rows="1" placeholder="e.g. 50" id="cleanig_fee_input"></textarea></br>
+							<h7>Additional fee for extra people (in AU dollar):</h7>
+							<textarea class="form-control" rows="1" placeholder="e.g. 50" id="additional_fee_input"></textarea>
+
+					</div>
+				</form>
+
+		    </div>
+
+
+
+
+		   </div>
+
+		    <div class="row">
+		    	<div class="col-sm-4"></div>
+		    	<div class="col-sm-4" align="center">
+		    		<button type="button" class="btn btn-secondary" id="input_submit" >Submit</button>
+		    	</div>
+
+
+		    </div></br>
+
+		    <div class="row">
+		    	<div class="col-sm-4"></div>
+		    	<div class="col-sm-4" align="center">
+		    		<button type="button" class="btn btn-secondary" id="get_submit" >Inform</button>
+		    	</div>
+
+		    </div>
+
+
+
+
+		</div>
+	</body>
+
+</html>

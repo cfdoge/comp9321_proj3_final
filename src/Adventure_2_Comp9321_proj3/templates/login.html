@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/login.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.bundle.js"></script>
+
+		<title>Comp9321 assignment3</title>
+	</head>
+	
+
+	<body>
+		<br/><br/><br/>
+		<div class="row">
+			<div class="col-md-4"></div>
+	    	<div class="col-md-4">
+				<div class="login-box">
+					<center><h2>Welcome to the App</h2></center>
+					<br/>
+					<form method="post">
+						<h5>Username:</h5> 
+						<input type="text" class="form-control" name="username" id="login_username" placeholder="Username">
+						<br/>
+						<h5>Password:</h5> 
+						<input type="password" class="form-control" name="password" id="login_password" placeholder="Password">
+						<br/>
+						<h5>Type:</h5> 
+						<input type="text" class="form-control" name="type" id="login_type" placeholder="Landlord/Guest/Specialist">
+						<br/>
+	          			<center><button type="submit" class="btn btn-primary" id="login_form_button" value="Login">Login</button>
+	          			</center>
+	          		</form>
+	        	</div>
+	        </div>
+	    </div>
+		
+	</body>
+
+</html>
